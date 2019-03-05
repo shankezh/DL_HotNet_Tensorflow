@@ -5,6 +5,34 @@
 import tensorflow as tf
 import os
 import numpy as np
+import coms.utils as utils
+import coms.tfrecords as tfrecords
+def get_cifar10_batch(is_train, batch_size, num_cls):
+    train_dir = r''
+    test_dir = r''
+    aim_dir = r''
+    if utils.isLinuxSys():
+        train_dir = r''
+        test_dir  = r''
+    else:
+        train_dir = r'D:\DataSets\cifar\cifar\tfrecords\train.tfrecords'
+        test_dir = r'D:\DataSets\cifar\cifar\tfrecords\test.tfrecords'
+
+    if is_train:
+        aim_dir = train_dir
+        print(aim_dir)
+        train_img_tfrecords, train_label_tfrecords = tfrecords.get_tfrecords(aim_dir,img_prob=[32,32,3])
+        train_img_batch, train_label_batch = get_batch_tfrecords(train_img_tfrecords,train_label_tfrecords,32,32,batch_size,10)
+        train_label_batch = tf.one_hot(train_label_batch,depth=num_cls)
+        return train_img_batch,train_label_batch
+    else:
+        aim_dir = test_dir
+        test_img_tfrecords, test_label_tfrecords = tfrecords.get_tfrecords(aim_dir,img_prob=[32,32,3])
+        test_img_batch, test_label_batch = get_batch_tfrecords(test_img_tfrecords,test_label_tfrecords,32,32,batch_size,1,False)
+        test_label_batch = tf.one_hot(test_label_batch,depth=num_cls)
+        return test_img_batch,test_label_batch
+
+
 
 
 def get_dogcat_img(file_dir):
@@ -59,7 +87,29 @@ def get_cifar10_img(file_dir):
 
     return img_list, label_list
 
+def get_batch_tfrecords(imgs,label,img_w,img_h,batch_size,num_threads,shuffle=True):
+    imgs = tf.image.resize_images(images=imgs,size=[img_w,img_h],method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
 
+    # capacity=5+batch_size*3, min_after_dequeue=5
+    if shuffle:
+        img_batch, label_batch = tf.train.shuffle_batch(
+            [imgs, label]
+            , batch_size=batch_size
+            , capacity=5+batch_size*3
+            , num_threads=num_threads
+            , min_after_dequeue=10
+        )
+    else:
+        # num_thread = 1时，每次去除的样本顺序固定不变
+        img_batch, label_batch = tf.train.batch(
+            [imgs, label]
+            , batch_size=batch_size
+            , capacity=5+batch_size*3
+            , num_threads=num_threads
+        )
+    img_batch = tf.cast(img_batch, tf.float32)
+
+    return img_batch,label_batch
 
 
 
@@ -106,7 +156,6 @@ def get_batch(img, label, img_w, img_h, batch_size, capacity):
     )
 
     # label_batch = tf.reshape(label_batch,[batch_size])
-
 
     img_batch = tf.cast(img_batch, tf.float32)
 
