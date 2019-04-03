@@ -4,6 +4,7 @@
 
 
 import tensorflow as tf
+import tensorflow.contrib.slim as slim
 
 # 载入模型
 def load_weights(self):
@@ -23,7 +24,15 @@ def predict(self):
 
 
 
-
+# 带BN的训练函数
+def optimizer_bn(lr,loss,mom=0.9,fun = 'mm'):
+    with tf.name_scope('optimzer_bn'):
+        update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
+        print("BN parameters: ", update_ops)
+        with tf.control_dependencies([tf.group(*update_ops)]):
+            optim = tf.train.MomentumOptimizer(learning_rate=lr,momentum=0.9)
+            train_op = slim.learning.create_train_op(loss,optim)
+    return train_op
 
 # 训练函数
 def optimizer(lr,loss,mom=0.9,fun = 'mm'):

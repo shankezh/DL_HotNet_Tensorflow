@@ -7,7 +7,7 @@ import os
 import numpy as np
 import coms.utils as utils
 import coms.tfrecords as tfrecords
-def get_cifar10_batch(is_train, batch_size, num_cls):
+def get_cifar10_batch(is_train, batch_size, num_cls,img_prob):
     train_dir = r''
     test_dir = r''
     aim_dir = r''
@@ -21,14 +21,14 @@ def get_cifar10_batch(is_train, batch_size, num_cls):
     if is_train:
         aim_dir = train_dir
         print(aim_dir)
-        train_img_tfrecords, train_label_tfrecords = tfrecords.get_tfrecords(aim_dir,img_prob=[32,32,3])
-        train_img_batch, train_label_batch = get_batch_tfrecords(train_img_tfrecords,train_label_tfrecords,32,32,batch_size,10)
+        train_img_tfrecords, train_label_tfrecords = tfrecords.get_tfrecords(aim_dir,img_prob=img_prob)
+        train_img_batch, train_label_batch = get_batch_tfrecords(train_img_tfrecords,train_label_tfrecords,img_prob[0],img_prob[1],batch_size,10)
         train_label_batch = tf.one_hot(train_label_batch,depth=num_cls)
         return train_img_batch,train_label_batch
     else:
         aim_dir = test_dir
-        test_img_tfrecords, test_label_tfrecords = tfrecords.get_tfrecords(aim_dir,img_prob=[32,32,3])
-        test_img_batch, test_label_batch = get_batch_tfrecords(test_img_tfrecords,test_label_tfrecords,32,32,batch_size,1,False)
+        test_img_tfrecords, test_label_tfrecords = tfrecords.get_tfrecords(aim_dir,img_prob=img_prob)
+        test_img_batch, test_label_batch = get_batch_tfrecords(test_img_tfrecords,test_label_tfrecords,img_prob[0],img_prob[1],batch_size,1,False)
         test_label_batch = tf.one_hot(test_label_batch,depth=num_cls)
         return test_img_batch,test_label_batch
 
