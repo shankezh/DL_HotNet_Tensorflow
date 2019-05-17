@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="452f4266-5576-43a6-9e9a-f77668ccaf9c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/detector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/solver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/test/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/test/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/test/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/test/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/voc07_img.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/Detection/YOLOV1/voc07_tfrecord.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DL_HotNet_Tensorflow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DL_HotNet_Tensorflow.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="452f4266-5576-43a6-9e9a-f77668ccaf9c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,23 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/net/Detection/YOLOV1/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
+            <state relative-caret-position="405">
               <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detector.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/net/Detection/YOLOV1/detector.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="113" column="67" selection-start-line="113" selection-start-column="67" selection-end-line="113" selection-end-column="67" />
-              <folding>
-                <element signature="e#79#116#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -328,15 +301,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1431" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286638" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286638" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3297414" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3297414" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26147044" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -715,20 +687,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/net/Detection/YOLOV1/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/net/Detection/YOLOV1/detector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="113" column="67" selection-start-line="113" selection-start-column="67" selection-end-line="113" selection-end-column="67" />
+        <state relative-caret-position="328">
+          <caret line="124" column="51" lean-forward="true" selection-start-line="124" selection-start-column="51" selection-end-line="124" selection-end-column="51" />
           <folding>
             <element signature="e#79#116#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/Detection/YOLOV1/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
         </state>
       </provider>
     </entry>
